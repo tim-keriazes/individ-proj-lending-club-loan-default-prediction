@@ -1,7 +1,7 @@
 # <a name="top"></a>README TITLE
 ![]()
 
-by: Matthew Dalton
+by: Tim Keriazes
 
 <p>
   <a href="https://github.com/mdalton87" target="_blank">
