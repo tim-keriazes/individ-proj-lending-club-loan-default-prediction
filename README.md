@@ -202,7 +202,7 @@ low subgrade/grade, looks like higher charge offs
 3. KNN
     
 
-- Other indicators of model performance with breif defiition and why it's important:
+- Other indicators of model performance:
 1. Precision
 2. Recall
 3. F1 Score
@@ -229,7 +229,7 @@ low subgrade/grade, looks like higher charge offs
 - After trials, better performance with lower n values, n=3 yielded 86% precision on fully paid, and 70% charged off
 ## Selecting the Best Model:
 
-### Use Table below as a template for all Modeling results for easy comparison:
+<!-- ### Use Table below as a template for all Modeling results for easy comparison: -->
 
 <!-- | Model | Validation/Out of Sample RMSE | R<sup>2</sup> Value |
 | ---- | ----| ---- |
@@ -240,9 +240,13 @@ low subgrade/grade, looks like higher charge offs
 | Quadratic Regression | 0.027786 | 2.4659 x 10<sup>-3</sup> |   -->
 
 
-- {} model performed the best
+- {Random forest model with depth of 15 performed the best beating baseline by 1%} model performed the best
 
 
 ## Testing the Model
 
-- Model Testing Results
+- Model Testing Results/Summary
+- Summary
+Following the evaluation of the different models using my selected features, I found that the best performing model was the Random Forest with depth 15
+- Looks like the models performance does much better as the the depth increases at the expense of processing power.
+- Next Steps: I would recommend doing some cost-benefit analysis on how this model can be used. At larger depth values, the model's precision for the 'Charged Off' values increases dramatically, but at the cost of some additional misclassification of customers into the false positive and false negative realm. With some additional time I think I could reexamine the features I utilized and incorporate a more refined list of values and include some scaling for a regression model
