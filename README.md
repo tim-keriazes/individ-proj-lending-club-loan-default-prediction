@@ -30,7 +30,7 @@ Financial institutions across the globe have a need to accurately parse which cu
 [[Back to top](#top)]
 
 ***
-## <a name="planning"></a>Project Planning: 
+## <a name="planning"></a>Project Planning/Outline: 
 1. Investigating the dataset/data dictionary
 2. Establishing initial questions/hypotheses
 3. Data acquisition
@@ -46,29 +46,31 @@ Financial institutions across the globe have a need to accurately parse which cu
 
 
 [[Back to top](#top)]
-
-### Project Outline:
-
-
         
 ### Hypothesis
-
+1. Loan status is correlated with sub_grade
+2. Loan status is correlated with revol_util
+3. Loan status is correlated with int_rate
 
 
 ### Target variable
-
+loan_status (Charged Off or Fully Paid)
 
 ### Need to haves (Deliverables):
-
-
-
-### Nice to haves (With more time):
-
-
+Machine learning classification model accurately predicting target variable
 
 ***
 
 ## <a name="findings"></a>Key Findings:
+
+1. 80% of the observations were fully paid, so if we predict all of the observations are fully paid, baseline would predict correctly 80% of the time, establishing a baseline accuracy of 80%
+2. high loan amount, high installment, looks like it has more charge offs
+3. high int rate, looks like high charge offs
+4. high loan amount for renters looks like higher charge offs
+5. high int rate, high dti, higher charge offs
+6. low subgrade/grade, looks like higher charge offs
+
+
 [[Back to top](#top)]
 
 
@@ -81,14 +83,37 @@ Financial institutions across the globe have a need to accurately parse which cu
 
 ### Data Used
 ---
-| Attribute | Definition | Data Type |
-| ----- | ----- | ----- |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
+| Attribute | Definition |
+| ----- | ----- |
+|	LoanStat|	Description|
+0	|loan_amnt|	The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value.
+1	|term|	The number of payments on the loan. Values are in months and can be either 36 or 60.
+2	|int_rate|	Interest Rate on the loan
+3	|installment|	The monthly payment owed by the borrower if the loan originates.
+4	|grade|	LC assigned loan grade
+5	|sub_grade|	LC assigned loan subgrade
+6	|emp_title|	The job title supplied by the Borrower when applying for the loan.*
+7	|emp_length|	Employment length in years. Possible values are between 0 and 10 where 0 means less than one year and 10 means ten or more years.
+8	|home_ownership|	The home ownership status provided by the borrower during registration or obtained from the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER
+9	|annual_inc|	The self-reported annual income provided by the borrower during registration.
+10	|verification_status|	Indicates if income was verified by LC, not verified, or if the income source was verified
+11	|issue_d|	The month which the loan was funded
+12	|loan_status|	Current status of the loan
+13	|purpose|	A category provided by the borrower for the loan request.
+14	|title|	The loan title provided by the borrower
+15	|zip_code|	The first 3 numbers of the zip code provided by the borrower in the loan application.
+
+16	|dti|	A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding mortgage and the requested LC loan, divided by the borrower’s self-reported monthly income.
+17	|earliest_cr_line|	The month the borrower's earliest reported credit line was opened
+18	|open_acc|	The number of open credit lines in the borrower's credit file.
+19	|pub_rec|	Number of derogatory public records
+20	|revol_bal|	Total credit revolving balance
+22	|revol_util|	Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit.
+23	|total_acc|	The total number of credit lines currently in the borrower's credit file
+23	|initial_list_status|	The initial listing status of the loan. Possible values are – W, F
+24	|application_type|	Indicates whether the loan is an individual application or a joint application with two co-borrowers
+25	|mort_acc|	Number of mortgage accounts.
+26	|pub_rec_bankruptcies|	Number of public record bankruptcies
 
 ***
 
