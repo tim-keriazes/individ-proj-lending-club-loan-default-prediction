@@ -22,7 +22,6 @@ by: Tim Keriazes
 [[Conclusion](#conclusion)]
 ___
 
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vR19fsVfxHvzjrp0kSMlzHlmyU0oeTTAcnTUT9dNe4wAEXv_2WJNViUa9qzjkvcpvkFeUCyatccINde/pub?w=1389&amp;h=410">
 
 ## <a name="project_description"></a>Project Description:
 Financial institutions across the globe have a need to accurately parse which customers are appropriate candidates for their financial offerings. Based on a customer's historical financials, institutions aqcuire the ability to accurately assess risk and make appropriate business decisions. In this project, I will analyze the lending_club_loan_two.csv dataset to discover drivers for loan defaults. I will use my discoveries to build a machine learning model that would help predict the status of a customer's loan, and in turn, whether or not they are likely candidates to default on a loan.
