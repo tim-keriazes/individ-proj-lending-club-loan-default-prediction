@@ -4,7 +4,7 @@
 by: Tim Keriazes
 
 <p>
-  <a href="https://github.com/mdalton87" target="_blank">
+  <a href="https://github.com/tim-keriazes" target="_blank">
     <img alt="Matthew" src="https://img.shields.io/github/followers/tim-keriazes?label=Follow_Tim&style=social" />
   </a>
 </p>
