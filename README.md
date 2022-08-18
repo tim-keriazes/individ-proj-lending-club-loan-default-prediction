@@ -131,14 +131,14 @@ https://www.kaggle.com/datasets/jeandedieunyandwi/lending-club-dataset
 3. Handle nulls
 4. drop duplicate information
 5. handle outliers
-6. build clean_lending() function to accomplish this for wrangle file
+6. build functions to accomplish this for wrangle_lending.py file
 
 *********************
 
 ## <a name="explore"></a>Data Exploration:
 [[Back to top](#top)]
 - Python files used for exploration:
-    - wrangle.py 
+    - wrangle_lending.py 
     - lending_tree_loan_default_project.ipynb
 
 
