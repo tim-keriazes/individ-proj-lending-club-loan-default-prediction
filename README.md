@@ -207,7 +207,7 @@ low subgrade/grade, looks like higher charge offs
 4. Baseline comparison
     
     
-#### Model 1: Decision Tree
+### Model 1: Decision Tree
 
 
 - Model 1 results:
