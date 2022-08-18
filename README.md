@@ -1,4 +1,4 @@
-# <a name="top"></a>Lending Tree Loan Default Prediction 
+# <a name="top"></a>Lending Club Loan Default Prediction 
 ![]()
 
 by: Tim Keriazes
