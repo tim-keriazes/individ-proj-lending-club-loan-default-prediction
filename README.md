@@ -31,6 +31,20 @@ Financial institutions across the globe have a need to accurately parse which cu
 
 ***
 ## <a name="planning"></a>Project Planning: 
+1. Investigating the dataset/data dictionary
+2. Establishing initial questions/hypotheses
+3. Data acquisition
+4. Data preparation
+5. Exploration and Data Analysis
+6. Identify drivers
+7. Encode features
+8. Split data
+9. Model
+10. Evaluate Models
+11. Test
+12. Conclusions/Next Steps 
+
+
 [[Back to top](#top)]
 
 ### Project Outline:
