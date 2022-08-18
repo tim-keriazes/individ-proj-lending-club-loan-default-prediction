@@ -139,8 +139,7 @@ https://www.kaggle.com/datasets/jeandedieunyandwi/lending-club-dataset
 [[Back to top](#top)]
 - Python files used for exploration:
     - wrangle.py 
-    - explore.py
-    - modeling.py
+    - lending_tree_loan_default_project.ipynb
 
 
 ### Takeaways from exploration:
