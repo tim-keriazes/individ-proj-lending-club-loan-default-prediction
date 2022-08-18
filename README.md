@@ -117,13 +117,22 @@ Machine learning classification model accurately predicting target variable
 ***
 
 ## <a name="wrangle"></a>Data Acquisition and Preparation
+Aqcuired the data from kaggle
+
+https://www.kaggle.com/datasets/jeandedieunyandwi/lending-club-dataset
+
 [[Back to top](#top)]
 
 ![]()
 
 
 ### Wrangle steps: 
-
+1. Analyze data
+2. ID nulls
+3. Handle nulls
+4. drop duplicate information
+5. handle outliers
+6. build clean_lending() function to accomplish this for wrangle file
 
 *********************
 
@@ -136,127 +145,99 @@ Machine learning classification model accurately predicting target variable
 
 
 ### Takeaways from exploration:
+1. 80% fully paid
+2. EDA Outlier Analysis (remove_outliers() function)
+get rid of dti > 40
+get rid of total_acc > 115
+get rid of annual_inc > 250,000
+get rid of revol_util > 200
+get rid of pub_rec > 25
+get rid of open_acc > 60
+get rid of small proportion of home_ownership values for ['OTHER','ANY','NONE']
 
-
-***
-
-## <a name="stats"></a>Statistical Analysis
-[[Back to top](#top)]
-
-### Stats Test 1: ANOVA Test: One Way
-
-Analysis of variance, or ANOVA, is a statistical method that separates observed variance data into different components to use for additional tests. 
-
-A one-way ANOVA is used for three or more groups of data, to gain information about the relationship between the dependent and independent variables: in this case our clusters vs. the log_error, respectively.
-
-To run the ANOVA test in Python use the following import: \
-<span style="color:green">from</span> scipy.stats <span style="color:green">import</span> f_oneway
-
-- f_oneway, in this case, takes in the individual clusters and returns the f-statistic, f, and the p_value, p:
-    - the f-statistic is simply a ratio of two variances. 
-    - The p_vlaue is the probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct
-
-#### Hypothesis:
-- The null hypothesis (H<sub>0</sub>) is
-- The alternate hypothesis (H<sub>1</sub>) is 
-
-#### Confidence level and alpha value:
-- I established a 95% confidence level
-- alpha = 1 - confidence, therefore alpha is 0.05
-
-#### Results:
-
-
-#### Summary:
-
-
-### Stats Test 2: T-Test: One Sample, Two Tailed
-- A T-test allows me to compare a categorical and a continuous variable by comparing the mean of the continuous variable by subgroups based on the categorical variable
-- The t-test returns the t-statistic and the p-value:
-    - t-statistic: 
-        - Is the ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. It is used in hypothesis testing via Student's t-test. 
-        - It is used in a t-test to determine if you should support or reject the null hypothesis
-        - t-statistic of 0 = H<sub>0</sub>
-    -  - the p-value:
-        - The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct
-- We wanted to compare the individual clusters to the total population. 
-    - Cluster1 to the mean of ALL clusters
-    - Cluster2 to the mean of ALL clusters, etc.
-
-#### Hypothesis:
-- The null hypothesis (H<sub>0</sub>) is 
-- The alternate hypothesis (H<sub>1</sub>) is 
-
-#### Confidence level and alpha value:
-- I established a 95% confidence level
-- alpha = 1 - confidence, therefore alpha is 0.05
-
-
-#### Results:
-
-
-#### Summary:
+3. Heatmap takeaways:
+loan amount and installment are appear to be highly correlated
+loan amount and revol balance appear to be correlated
+loan amount and annual income appear to be correlated
+annual income and installment appear to be correlated
 
 ***
+#### Summary:
+
+high loan amount, high installment, looks like it has more charge offs
+high int rate, looks like high charge offs
+high loan amount for renters looks like higher charge offs
+high int rate, high dti, higher charge offs
+low subgrade/grade, looks like higher charge offs
+
 
 ## <a name="model"></a>Modeling:
+1. split
+2. encode categoricals
+3. verify shape
+4. drop unneeded features
+
+
 [[Back to top](#top)]
 
 ### Model Preparation:
+1. establish baseline
+2. fit models on train sets only
+
 
 ### Baseline
     
-- Baseline Results: 
+- Baseline Results: 80% of the observations were fully paid, so if we predict all of the observations are fully paid, baseline would predict correctly 80% of the time, establishing a baseline accuracy of 80%
     
 
 - Selected features to input into models:
-    - features = []
+    - features = [loan_amnt,int_rate,installment, annual_inc, dti, revol_bal,revol_util , mort_acc,grade_encoded, home_ownership_encoded,  w, Source Verified, Verified ]
 
 ***
 
-### Models and R<sup>2</sup> Values:
-- Will run the following regression models:
-
+### Models:
+- Will run the following classification models:
+1. Decision Tree
+2. Random Forest
+3. KNN
     
 
 - Other indicators of model performance with breif defiition and why it's important:
-
+1. Precision
+2. Recall
+3. F1 Score
+4. Baseline comparison
     
     
-#### Model 1: Linear Regression (OLS)
+#### Model 1: Decision Tree
 
 
 - Model 1 results:
+- Lots of trials of varying depths, started at 3 resulting in charge off precision of 60% increasing depth to 15 increased charge off precision 16% to 76% and Paid precision to 86%
 
 
 
-### Model 2 : Lasso Lars Model
+### Model 2 : Random Forest
 
 
 - Model 2 results:
+- After trials, better performance with lower n values, n=3 yielded 86% precision on fully paid
 
-
-### Model 3 : Tweedie Regressor (GLM)
+### Model 3 : KNN
 
 - Model 3 results:
-
-
-### Model 4: Quadratic Regression Model
-
-- Model 4 results:
-
-
+- After trials, better performance with lower n values, n=3 yielded 86% precision on fully paid, and 70% charged off
 ## Selecting the Best Model:
 
 ### Use Table below as a template for all Modeling results for easy comparison:
 
-| Model | Validation/Out of Sample RMSE | R<sup>2</sup> Value |
+<!-- | Model | Validation/Out of Sample RMSE | R<sup>2</sup> Value |
 | ---- | ----| ---- |
 | Baseline | 0.167366 | 2.2204 x 10<sup>-16</sup> |
 | Linear Regression (OLS) | 0.166731 | 2.1433 x 10<sup>-3</sup> |  
 | Tweedie Regressor (GLM) | 0.155186 | 9.4673 x 10<sup>-4</sup>|  
 | Lasso Lars | 0.166731 | 2.2204 x 10<sup>-16</sup> |  
-| Quadratic Regression | 0.027786 | 2.4659 x 10<sup>-3</sup> |  
+| Quadratic Regression | 0.027786 | 2.4659 x 10<sup>-3</sup> |   -->
 
 
 - {} model performed the best
